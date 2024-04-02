@@ -14,10 +14,15 @@ package frc.robot;
 
 import edu.wpi.first.hal.FRCNetComm.tInstances;
 import edu.wpi.first.hal.FRCNetComm.tResourceType;
+
+import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
+
 import edu.wpi.first.hal.HAL;
+import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
+import frc.robot.POM_lib.Joysticks.JoystickConstants;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -31,6 +36,11 @@ public class Robot extends TimedRobot {
     private Command m_autonomousCommand;
 
     private RobotContainer m_robotContainer;
+
+    WPI_TalonSRX leftMotor = new WPI_TalonSRX(2);
+    WPI_TalonSRX rightMotor = new WPI_TalonSRX(4);
+
+    Joystick joystick = new Joystick(0);
 
     /**
      * This function is run when the robot is first started up and should be
